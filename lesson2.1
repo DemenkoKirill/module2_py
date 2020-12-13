@@ -1,0 +1,24 @@
+class Auto:
+    name = 'Unknown'
+    signal = 'silence'
+    pos = 0
+    color = 'unknown'
+
+    def __init__(self, name='Unknown', signal='silence', color='unknown'):
+        self.name = name
+        self.signal = signal
+        self.color = color
+
+    def coord(self):
+        self.pos +=1
+
+BMW = Auto(name='BMW', signal='BEEP', color='Black')
+BMW.coord()
+BMW.coord()
+BMW.coord()
+BMW.coord()
+print(BMW.pos)
+print(BMW.color)
+Volvo = Auto(name='Volvo', signal='beep', color='green')
+Volvo.coord()
+print(Volvo.pos)

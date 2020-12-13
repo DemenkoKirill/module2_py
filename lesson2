@@ -1,0 +1,33 @@
+class Animal:
+    name = 'Unknown'
+    voice_ = 'silence'
+    coord_ = 0
+
+    def __init__(self, name='Unknown', voice_='silence'):
+        self.name = name
+        self.voice_ = voice_
+
+
+    def voice(self):
+        print(self.voice_)
+
+    def coord(self):
+        self.coord_ += 1
+
+while True:
+    print('some')
+    break
+
+
+
+lion = Animal(name='lion', voice_='рык')
+# lion.name = 'lion'
+# lion.voice_ = 'рык'
+
+horse = Animal()
+horse.name = 'horse'
+horse.voice_ = 'ржание'
+print(horse.coord_)
+horse.coord()
+print(horse.coord_)
+horse.voice()

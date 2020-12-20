@@ -1,0 +1,83 @@
+# # class MyClass(object):
+# #     next_number = 0
+# #
+# #     def __init__(self):
+# #         self.number = self.next_number
+# #         MyClass.next_number += 1
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# class Animal:
+#     name = 'Unknown'
+#     voice_ = 'silence'
+#     coord_ = 0
+#
+#     def __init__(self, name='Unknown', voice_='silence', fly='True', swim='True'):
+#         self.name = name
+#         self.voice_ = voice_
+#         self.fly = fly
+#         self.swim = swim
+#     def voice(self):
+#         print(self.voice_)
+#
+#     def coord(self):
+#         self.coord_ += 1
+#
+# while True:
+#     print('some')
+#     break
+#
+# #
+# #
+# # lion = Animal(name='lion', voice_='рык')
+# # # lion.name = 'lion'
+# # # lion.voice_ = 'рык'
+# #
+# # horse = Animal()
+# # horse.name = 'horse'
+# # horse.voice_ = 'ржание'
+# # print(horse.coord_)
+# # horse.coord()
+# # print(horse.coord_)
+# # horse.voice()
+#
+# class SwimmingAnimal(Animal):
+#     swim = True
+#     def fly_(self):
+#         if self.swim:
+#             self.swim = False
+#         else:
+#             self.swim = True
+#
+#
+#
+# class Bird(Animal):
+#     fly = True
+#
+#     def fly_(self):
+#         if self.fly:
+#             self.fly = False
+#         else:
+#             self.fly = True
+#
+# eagle = Bird(name='Орел', voice_='крик')
+#
+# class SwimmingBird(Bird, SwimmingAnimal):
+#     pass
+#
+# goose = SwimmingBird(name='гусь')
+# goose.fly_()
+# print(goose.fly)
+# goose.fly_()
+# print(goose.fly)
+
+
+#инкапсуляция  _dfajd 1 level
+#инкапсуляция  __dfajd 2 level
+

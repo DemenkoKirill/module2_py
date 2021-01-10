@@ -1,0 +1,27 @@
+# code='''
+# print(hello)
+# '''
+# with open(file='.\\test.py', mode='a', encoding='utf-8') as file:
+#     file.write(code)
+
+# f = open(
+#     file='.\\test.py',
+#     mode='a',
+#     encoding='utf-8'
+# )
+# f.write(code)
+# f.close()
+#
+# f = open(
+#     file='.\\test.py',
+#     mode='r',
+#     encoding='utf-8'
+# )
+# print(f.read())
+# f.close()
+
+
+
+from support import read_file
+#print(read_file('.\\test.py'))
+url='https://api.vk.com/method/wall.get?'

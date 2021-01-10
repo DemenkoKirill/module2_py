@@ -1,0 +1,158 @@
+# # class MyClass(object):
+# #     next_number = 0
+# #
+# #     def __init__(self):
+# #         self.number = self.next_number
+# #         MyClass.next_number += 1
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# class Animal:
+#     name = 'Unknown'
+#     voice_ = 'silence'
+#     coord_ = 0
+#
+#     def __init__(self, name='Unknown', voice_='silence', fly='True', swim='True'):
+#         self.name = name
+#         self.voice_ = voice_
+#         self.fly = fly
+#         self.swim = swim
+#     def voice(self):
+#         print(self.voice_)
+#
+#     def coord(self):
+#         self.coord_ += 1
+#
+# while True:
+#     print('some')
+#     break
+#
+# #
+# #
+# # lion = Animal(name='lion', voice_='рык')
+# # # lion.name = 'lion'
+# # # lion.voice_ = 'рык'
+# #
+# # horse = Animal()
+# # horse.name = 'horse'
+# # horse.voice_ = 'ржание'
+# # print(horse.coord_)
+# # horse.coord()
+# # print(horse.coord_)
+# # horse.voice()
+#
+# class SwimmingAnimal(Animal):
+#     swim = True
+#     def fly_(self):
+#         if self.swim:
+#             self.swim = False
+#         else:
+#             self.swim = True
+#
+#
+#
+# class Bird(Animal):
+#     fly = True
+#
+#     def fly_(self):
+#         if self.fly:
+#             self.fly = False
+#         else:
+#             self.fly = True
+#
+# eagle = Bird(name='Орел', voice_='крик')
+#
+# class SwimmingBird(Bird, SwimmingAnimal):
+#     pass
+#
+# goose = SwimmingBird(name='гусь')
+# goose.fly_()
+# print(goose.fly)
+# goose.fly_()
+# print(goose.fly)
+
+
+#инкапсуляция  _dfajd 1 level
+#инкапсуляция  __dfajd 2 level
+
+
+# import os
+#
+# print(os.name)
+#
+# os.system('dir')
+# print(sys.executable)
+# sys.exit()
+#
+# print(sys.path) #для просмотра директории
+# nums = 'first', 2, 3
+#  idx=0
+#  with idx < len(nums):
+#      print(nums[idx])
+#      idx+=1
+# for i in nums:
+#     print(i)
+# import sys
+# path_to_desktop = "C:\\Users\\python\\Desktop\\"
+#
+# sys.path.append(path_to_desktop)
+#
+# for p in sys.path:
+#     print(p)
+#
+#
+# import dsd
+
+
+################################################################################
+
+# class Animals:
+#     body = 60
+#     paws = 4
+#     tail = True
+#     fur = True
+#
+#     def __init__(self, tail, fur):
+#         self.tail = tail
+#         self.fur = fur
+# animal = Animals
+# animal.tail = False
+# animal.fur = False
+# print(animal.tail)
+# # print(Animals().body)
+# # print(Animals().fur)
+
+
+
+
+
+#class Auto:
+#     name = 'Unknown'
+#     signal = 'silence'
+#     pos = 0
+#     color = 'unknown'
+# 
+#     def __init__(self, name='Unknown', signal='silence', color='unknown'):
+#         self.name = name
+#         self.signal = signal
+#         self.color = color
+# 
+#     def coord(self):
+#         self.pos +=1
+# 
+# BMW = Auto(name='BMW', signal='BEEP', color='Black')
+# BMW.coord()
+# BMW.coord()
+# BMW.coord()
+# BMW.coord()
+# print(BMW.pos)
+# print(BMW.color)
+# Volvo = Auto(name='Volvo', signal='beep', color='green')
+# Volvo.coord()
+# print(Volvo.pos)

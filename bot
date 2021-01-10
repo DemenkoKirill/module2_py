@@ -1,0 +1,5 @@
+class Bot:
+    __base_url = 'https://api.vk.com/method/'
+    __methods = 'wall.get?'
+get = __base_url + __methods
+method = {get, like}

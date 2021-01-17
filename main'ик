@@ -19,9 +19,63 @@
 # )
 # print(f.read())
 # f.close()
-
-
-
-from support import read_file
 #print(read_file('.\\test.py'))
+# print(json_data['error']['error_msg'])
+# print(json_data['error']['request_params'][0]['value'])
+from support import read_file
+from bot import Bot
+
+import requests
+
+from pprint import pprint
+
 url='https://api.vk.com/method/wall.get?'
+PATH_TO_TOKEN='C:\\Users\\python\\PycharmProjects\\Kirill\\Kirill\\token.txt'
+tok=read_file(PATH_TO_TOKEN)
+id=44273004
+like_bot = Bot(owner_id=id, tok=tok)
+full_url = like_bot.create_url()
+response = requests.get(full_url)
+json_data = response.json()
+pprint(full_url)
+   
+   
+   
+   
+   
+   
+   
+   import requests
+
+def read_file(path):
+    with open(file=path, mode='r', encoding='utf-8') as f:
+       result = f.read()
+    return result
+
+
+def get_data(full_url):
+    response = requests.get(full_url)
+    json_data = response.json()
+    return json_data
+
+
+
+
+
+
+class Bot:
+    __base_url = 'https://api.vk.com/method/'
+    __methods = 'wall.get?'
+
+    def __init__(self, owner_id, token):
+        self.owner_id = owner_id
+        self.token = token
+
+    def create_url(self, count=1, offset=0):
+        params = f'owner_id=-{self.owner_id}&' \
+                 f'count={count}&' \
+                 f'offset={offset}&' \
+                 f'access_token={self.token}&' \
+                 f'v=5.126'
+        return self.__base_url + self.__methods + params
+

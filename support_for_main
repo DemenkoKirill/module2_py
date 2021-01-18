@@ -1,0 +1,12 @@
+   import requests
+
+def read_file(path):
+    with open(file=path, mode='r', encoding='utf-8') as f:
+       result = f.read()
+    return result
+
+
+def get_data(full_url):
+    response = requests.get(full_url)
+    json_data = response.json()
+    return json_data

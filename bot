@@ -1,5 +1,15 @@
 class Bot:
     __base_url = 'https://api.vk.com/method/'
     __methods = 'wall.get?'
-get = __base_url + __methods
-method = {get, like}
+
+    def __init__(self, owner_id, token):
+        self.owner_id = owner_id
+        self.token = token
+
+    def create_url(self, count=1, offset=0):
+        params = f'owner_id=-{self.owner_id}&' \
+                 f'count={count}&' \
+                 f'offset={offset}&' \
+                 f'access_token={self.token}&' \
+                 f'v=5.126'
+        return self.__base_url + self.__methods + params

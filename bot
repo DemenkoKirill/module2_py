@@ -1,3 +1,4 @@
+import requests
 class Bot:
     __base_url = 'https://api.vk.com/method/'
     __methods = 'wall.get?'
@@ -11,5 +12,21 @@ class Bot:
                  f'count={count}&' \
                  f'offset={offset}&' \
                  f'access_token={self.token}&' \
-                 f'v=5.126'
-        return self.__base_url + self.__methods + params
+                 f'v=5.21'
+        self.__base_url = self.__base_url + self.__methods + params
+
+        return self.__base_url
+
+    def get_data(self):
+        response = requests.get(self.__base_url)
+        json_data = response.json()
+
+        items_list = json_data['response']['items']
+
+        for item in items_list:
+            idx = item[0]['id']
+            like = item[0]['likes']['user_likes']
+            text = item[0]['text']
+
+        return idx, like, text
+#дополнить гет дату так, чтобы в результате в мейнике выводился не ласт пост, а все

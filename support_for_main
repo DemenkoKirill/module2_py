@@ -1,4 +1,4 @@
-   import requests
+import requests
 
 def read_file(path):
     with open(file=path, mode='r', encoding='utf-8') as f:
@@ -8,5 +8,6 @@ def read_file(path):
 
 def get_data(full_url):
     response = requests.get(full_url)
+    requests.get(full_url)
     json_data = response.json()
     return json_data

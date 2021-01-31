@@ -11,3 +11,5 @@ def get_data(full_url):
     requests.get(full_url)
     json_data = response.json()
     return json_data
+
+

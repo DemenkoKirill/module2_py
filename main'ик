@@ -29,12 +29,13 @@ from pprint import pprint
 
 PATH_TO_TOKEN = 'token.txt'
 token=read_file(PATH_TO_TOKEN)
+id = 44273004
 
-id=44273004
+like_bot = Bot(owner_id=id, token=token)  #Создаем бота
+full_url = like_bot.create_url(count=1)  #Бот - создай ссылку
 
-like_bot = Bot(owner_id=id, token=token)#Создаем бота
-full_url = like_bot.create_url(count=1)# Бот - создай ссылку
-data = like_bot.get_data()#БОТ - достань данные
+data = like_bot.get_data()  #БОТ - достань данные
+like_bot.like_add()
 print(full_url)
-
+pprint(data)
 

@@ -1,32 +1,50 @@
 import requests
 class Bot:
-    __base_url = 'https://api.vk.com/method/'
-    __methods = 'wall.get?'
-
+    base_url = 'https://api.vk.com/method/'
+    full_url = None
+    methods = {
+        'get_wall':'wall.get?',
+        'like': 'likes.add?'
+    }
+    data_list = []
     def __init__(self, owner_id, token):
-        self.owner_id = owner_id
-        self.token = token
+        self.base_params = f'owner_id=-{owner_id}&' \
+                           f'access_token={token}&' \
+                           f'v=5.21'
+
 
     def create_url(self, count=1, offset=0):
-        params = f'owner_id=-{self.owner_id}&' \
-                 f'count={count}&' \
-                 f'offset={offset}&' \
-                 f'access_token={self.token}&' \
-                 f'v=5.21'
-        self.__base_url = self.__base_url + self.__methods + params
+        params = f'count={count}&' \
+                 f'offset={offset}'
 
-        return self.__base_url
+        self.full_url = self.base_url + self.methods['get_wall'] + self.base_params + params
+
+        return self.full_url
 
     def get_data(self):
-        response = requests.get(self.__base_url)
+        response = requests.get(self.full_url)
         json_data = response.json()
 
         items_list = json_data['response']['items']
 
         for item in items_list:
-            idx = item[0]['id']
-            like = item[0]['likes']['user_likes']
-            text = item[0]['text']
+            data_dict = {
+                'id': item['id'],
+                'like':  item['likes']['user_likes'],
+                'text':  item['text']
+            }
+            self.data_list.append(data_dict)
 
-        return idx, like, text
-#дополнить гет дату так, чтобы в результате в мейнике выводился не ласт пост, а все
+        return self.data_list
+
+    def like_add(self):
+        params = f'type=post&'\
+               f'item_id=4565&'
+
+        self.full_url = self.base_url + self.methods['like'] + self.base_params + params
+
+        
+        response = requests.get(self.full_url)
+        json_data = response.json()
+
+        print(json_data)

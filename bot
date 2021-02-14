@@ -1,3 +1,4 @@
+from pprint import pprint
 import requests
 class Bot:
     base_url = 'https://api.vk.com/method/'
@@ -38,13 +39,28 @@ class Bot:
         return self.data_list
 
     def like_add(self):
-        params = f'type=post&'\
-               f'item_id=4565&'
+        likes = 0
 
-        self.full_url = self.base_url + self.methods['like'] + self.base_params + params
+        for i in self.data_list:
+            if i['like']:
+                print(i['id'], 'лайк был поставлен')
+            else:
+                params = f'type=post&' \
+                         f'item_id={i["id"]}'
 
-        
-        response = requests.get(self.full_url)
-        json_data = response.json()
+                self.full_url = self.base_url + self.methods['like'] + \
+                                self.base_params + params
 
-        print(json_data)
+                try:
+                    requests.get(self.full_url)
+                    pprint(i)
+                    print('лайк поставлен')
+
+                    likes += 1
+
+                except KeyError:
+                    print('Появилась проверка на бота')
+                    sys.exit()
+
+        return likes
+

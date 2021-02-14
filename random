@@ -15,7 +15,12 @@ def finish():
 
 
 def predict(more=None, less=None):
-    global min_, max_
+    global min_, max_, num
+
+    if more:
+        min_ = num + 1
+    elif less:
+        max_ = num - 1
     num = random.randint(min_, max_)
     answer['text'] = num
 

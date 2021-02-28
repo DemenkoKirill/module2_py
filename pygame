@@ -1,0 +1,33 @@
+import sys
+import pygame
+
+parent_window = pygame.display.set_mode(size=(600, 400))
+
+clockFPS = pygame.time.Clock()
+
+pygame.display.update()
+
+x = y = 50
+pos = None
+mouse_down = False
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == 256 or event.type == 768 and event.key == 27:
+            pygame.quit()
+            sys.exit()
+        if event.type == 1024:
+            x, y = event.pos
+
+        print(event)
+    parent_window.fill((0, 0, 0))
+
+
+    pygame.draw.rect(parent_window, (0, 255, 255), (x, y, 100, 100))
+
+    pygame.display.update()
+    clockFPS.tick(60)
+
+
+

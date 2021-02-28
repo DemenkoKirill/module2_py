@@ -1,0 +1,37 @@
+from tkinter import *
+import random
+
+root = Tk()
+root.title('Угадай число')
+
+min_ = 1
+max_ = 100
+
+some_num = random.randint(min_, max_)
+
+
+def finish():
+    Label(text='Ура, я выиграл!', font='Times 30').pack(side=BOTTOM)
+
+
+def predict(more=None, less=None):
+    global min_, max_, num
+    if more:
+        min_ = num + 1
+    elif less:
+        max_ = num - 1
+    num = random.randint(min_, max_)
+    answer['text'] = num
+
+
+
+
+
+
+Button(command=lambda more=True:predict(more=more), text='Больше', font='Times 30').pack(side=RIGHT)
+answer = Button(command=finish, text=f'{some_num}', font='Times 64', width=4)
+answer.pack(side=RIGHT)
+predict()
+Button(command=lambda less=True:predict(less=less), text='Меньше',font='Times 30').pack(side=RIGHT)
+
+root.mainloop()

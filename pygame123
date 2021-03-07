@@ -1,0 +1,52 @@
+import sys
+import pygame
+
+parent_window = pygame.display.set_mode(size=(600, 400))
+
+clockFPS = pygame.time.Clock()
+
+pygame.display.update()
+
+pos = None
+mouse_down = False
+
+class Player:
+
+    def __init__(self, color=(255, 255, 255), size=(100, 100), place=(50, 50)):
+        self.color = color
+        self.w, self.h = size
+        self.x, self.y = place
+
+
+
+
+    def draw(self):
+        pygame.draw.rect(parent_window, self.color, (self.x, self.y, self.w, self.h))
+
+
+    def move(self):
+        if event.type == 769 and event.key == 119:
+            self.x=char.x+1
+char = Player(color=(0, 255, 255), size=(25,50), place=(100,100))
+
+
+while True:
+    for event in pygame.event.get():
+        print(event)
+        if event.type == 256 or event.type == 768 and event.key == 27:
+            pygame.quit()
+            sys.exit()
+        if event.type == 768 and event.key == 100:
+            char.x += 10
+        if event.type == 768 and event.key == 97:
+            char.x -= 10
+        if event.type == 768 and event.key == 119:
+            char.y -= 10
+        if event.type == 768 and event.key == 115:
+            char.y += 10
+
+    parent_window.fill((0, 0, 0))
+    char.draw()
+    pygame.display.update()
+    clockFPS.tick(60)
+
